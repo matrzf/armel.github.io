@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DDoS Traffic Analysis Dashboard</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/d3-sankey@0.12.3/dist/d3-sankey.min.js"></script> -->
+    <style>
+        body { font-family: sans-serif; margin: 20px; }
+        svg { margin-top: 20px; }
+        .chart-container { margin-bottom: 40px; }
+        .tooltip {
+            position: absolute;
+            background-color: white;
+            border: 1px solid #999;
+            padding: 4px 8px;
+            font-size: 12px;
+            pointer-events: none;
+            border-radius: 4px;
+            box-shadow: 1px 1px 5px rgba(0,0,0,0.2);
+        }
+    </style>
+</head>
+<body>
+    <h1>DDoS Traffic Analysis (D3.js)</h1>
+
+    <div class="chart-container">
+        <h2>Nombre de flux par type de trafic</h2>
+        <svg id="label-bar-chart" width="700" height="400"></svg>
+    </div>
+
+    <div class="chart-container">
+        <h2>Flow Duration vs Total Fwd Packets</h2>
+        <label for="labelFilter">Filtrer par label:</label>
+        <select id="labelFilter"></select>
+        <svg id="scatter-plot" width="700" height="400"></svg>
+    </div>
+
+    <div class="chart-container">
+        <h2>Répartition des types de trafic (Pie Chart)</h2>
+        <svg id="pie-chart" width="500" height="500"></svg>
+    </div>
+
+    <div class="chart-container">
+        <h2>Heatmap de corrélation (variables réseau)</h2>
+        <label for="heatmapFilter">Filtrer la heatmap par label :</label>
+        <select id="heatmapFilter"></select>
+        <svg id="heatmap" width="700" height="700"></svg>
+        <div id="heatmap-legend" style="margin-top: 10px;"></div>
+    </div>
+
+    <div class="chart-container">
+        <h2>Diagramme Sankey : Label → Port de destination</h2>
+        <svg id="sankey" width="1000" height="600"></svg>
+    </div>
+
+    <script type="module" src="script.js"></script>
+</body>
+</html>
